@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GXy-86-c89">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="tFc-lp-PrW">
+            <objects>
+                <navigationController id="GXy-86-c89" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eak-bX-e91">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ugz-OF-1RY" kind="relationship" relationship="rootViewController" id="eV1-hQ-vlY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fb1-mA-y5X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1319" y="146"/>
+        </scene>
+        <!--Collection View Controller-->
+        <scene sceneID="D0H-yg-MEq">
+            <objects>
+                <collectionViewController id="ugz-OF-1RY" customClass="CollectionViewController" customModule="FunnyHeadlines" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="esK-UQ-piw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fqN-ki-014">
+                            <size key="itemSize" width="296" height="90"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="L9J-dX-uhj">
+                                <rect key="frame" x="40" y="0.0" width="296" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="296" height="90"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="ugz-OF-1RY" id="dJq-Z5-7wL"/>
+                            <outlet property="delegate" destination="ugz-OF-1RY" id="thy-v5-weQ"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="Wbf-W2-d3V">
+                        <barButtonItem key="rightBarButtonItem" image="settingsIcon" id="0qC-mt-US4">
+                            <connections>
+                                <segue destination="Gcf-ZU-Hum" kind="show" id="mAH-F4-xJk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="im9-Pa-Jnb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-471.19999999999999" y="144.3778110944528"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="34F-QO-uKh">
+            <objects>
+                <viewController id="Gcf-ZU-Hum" customClass="SettingsViewController" customModule="FunnyHeadlines" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SHY-NN-KCq"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Kb-1a-ec7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GgS-n8-USt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6gm-6m-A4i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="334" y="145"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="settingsIcon" width="25" height="25"/>
+    </resources>
+</document>
