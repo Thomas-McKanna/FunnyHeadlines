@@ -10,4 +10,6 @@ import Foundation
 
 // This file will use the NewsAPI (https://newsapi.org/)
 
+// NewsAPI Key: f93160eaab9f45f59db70d9c94787988
+
 // TODO: this file will define the functions needed to return an array of headlines.
