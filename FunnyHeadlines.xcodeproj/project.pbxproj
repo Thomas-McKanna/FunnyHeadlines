@@ -15,9 +15,9 @@
 		E9436B801E5BAC060074DD15 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9436B7F1E5BAC060074DD15 /* News.swift */; };
 		E9436B821E5BAC2C0074DD15 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9436B811E5BAC2C0074DD15 /* Translate.swift */; };
 		E9436B841E5BAE5F0074DD15 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9436B831E5BAE5F0074DD15 /* CollectionViewController.swift */; };
-		E9436B861E5BB1150074DD15 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9436B851E5BB1150074DD15 /* SettingsViewController.swift */; };
 		E9436B881E5BCAB00074DD15 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9436B871E5BCAB00074DD15 /* Shared.swift */; };
 		E9436B8A1E5C77AB0074DD15 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9436B891E5C77AB0074DD15 /* CollectionViewCell.swift */; };
+		E9436B8C1E5C9C3E0074DD15 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9436B8B1E5C9C3E0074DD15 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +31,9 @@
 		E9436B7F1E5BAC060074DD15 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		E9436B811E5BAC2C0074DD15 /* Translate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
 		E9436B831E5BAE5F0074DD15 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
-		E9436B851E5BB1150074DD15 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ../SettingsViewController.swift; sourceTree = "<group>"; };
 		E9436B871E5BCAB00074DD15 /* Shared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
 		E9436B891E5C77AB0074DD15 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		E9436B8B1E5C9C3E0074DD15 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,9 +68,9 @@
 			children = (
 				E9436B6A1E5BABC50074DD15 /* AppDelegate.swift */,
 				E9436B6E1E5BABC50074DD15 /* Main.storyboard */,
-				E9436B851E5BB1150074DD15 /* SettingsViewController.swift */,
 				E9436B831E5BAE5F0074DD15 /* CollectionViewController.swift */,
 				E9436B891E5C77AB0074DD15 /* CollectionViewCell.swift */,
+				E9436B8B1E5C9C3E0074DD15 /* SettingsViewController.swift */,
 				E9436B7F1E5BAC060074DD15 /* News.swift */,
 				E9436B811E5BAC2C0074DD15 /* Translate.swift */,
 				E9436B871E5BCAB00074DD15 /* Shared.swift */,
@@ -161,7 +161,7 @@
 				E9436B731E5BABC50074DD15 /* FunnyHeadlines.xcdatamodeld in Sources */,
 				E9436B821E5BAC2C0074DD15 /* Translate.swift in Sources */,
 				E9436B841E5BAE5F0074DD15 /* CollectionViewController.swift in Sources */,
-				E9436B861E5BB1150074DD15 /* SettingsViewController.swift in Sources */,
+				E9436B8C1E5C9C3E0074DD15 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +323,7 @@
 				E9436B7E1E5BABC50074DD15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -21,6 +21,9 @@ private let cellHeight: CGFloat = 75.0
 class CollectionViewController: UICollectionViewController {
     
     var translatedNewsArray = [News]()
+    
+    var source = "cnn"
+    var translation = "yoda"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +35,13 @@ class CollectionViewController: UICollectionViewController {
         //self.collectionView!.register(CollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         // temporary display of how the news API and fun translations work together. Right now, only the first five requests go through because of a rate limit (will be payint $5 for upgrade)
-        News.getNews(ForSource: "cnn") { newsArray in
+        News.getNews(ForSource: source) { newsArray in
             
             self.translatedNewsArray = newsArray
             self.refreshUI()
             /*
             for article in newsArray {
-                translate(Headline: article.title!, WithTranslation: "yoda", completion: {translation in
+                translate(Headline: article.title!, WithTranslation: translation, completion: {translation in
                     self.translatedNewsArray.append(News(title: translation, url: article.url!)!)
                     // when a new translated headline comes in, update the collection view to show it
                     self.refreshUI()
@@ -47,7 +50,7 @@ class CollectionViewController: UICollectionViewController {
              */
         }
         
-        // Do any additional setup after loading the view.
+        // TODO: implement persistent settings - alter source and translation variables here
     }
     
     // used to refresh UI on main thread (for faster refresh)
@@ -67,6 +70,18 @@ class CollectionViewController: UICollectionViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // when we segue to setting, update the title of the navigation bar
+        if segue.identifier == "Settings" {
+            let vc = segue.destination as! SettingsViewController
+            
+            vc.delegate = self
+            
+            // not working
+            segue.destination.navigationController?.title = "Settings"
+        }
     }
 
     /*
