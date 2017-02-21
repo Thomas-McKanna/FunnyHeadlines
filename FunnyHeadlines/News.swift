@@ -35,6 +35,11 @@ struct News {
         self.url = url
     }
     
+    init?(title: String, url: String) {
+        self.title = title
+        self.url = url
+    }
+    
     // this function is called to get all the latest news headlines; it performs an API call
     static func getNews(ForSource s: String, completion: @escaping ([News]) -> Void) {
         
@@ -54,21 +59,24 @@ struct News {
         var urlComponents = URLComponents(string: base)!
         urlComponents.path = path
         urlComponents.queryItems = queryString
-        
         let URL = urlComponents.url!
         
+        // embed the URL into a request
         let request = URLRequest(url: URL)
         
         print("Requesting news headlines over the web...")
         
+        // make the news array to be filled in as soon as the request comes in
         var newsArray = [News]()
         
+        // make the request over the internet. The variable "data" contains a JSON containing news articles
         URLSession.shared.dataTask(with: request as URLRequest) {(data, response, error) -> Void in
             
             if let error = error {
                 print("Error: \(error.localizedDescription)")
             } else if let data = data {
-                print("We received a response from the news API: \(data)")
+                print("We received a response from the news API: \(data)!")
+                // attempt to parse the JSON data into dictionaries
                 if let json = try? JSONSerialization.jsonObject(with: data, options: []) as! [String : Any] {
                     for case let article in json["articles"] as! [[String : Any]] {
                         if let currentArticle = try? News(json: article) {
@@ -77,7 +85,9 @@ struct News {
                     }
                 }
             }
+            // when the data has been parsed, it must be passed to the calling function. It can do what it wants with the data there
             completion(newsArray)
+            
         }.resume()
     }
 }
