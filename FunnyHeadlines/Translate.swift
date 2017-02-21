@@ -33,7 +33,8 @@ func translate(Headline h: String, WithTranslation t: String, completion: @escap
     urlComponents.queryItems = queryString
     let URL = urlComponents.url!
     // embed the URL into a request
-    let request = URLRequest(url: URL)
+    var request = URLRequest(url: URL)
+    request.addValue("4V9_OUXmRNktTdftKTE8egeF", forHTTPHeaderField: "X-FunTranslations-Api-Secret")
 
     // make the request over the internet. The variable "data" contains a JSON containing news articles
     URLSession.shared.dataTask(with: request as URLRequest) {(data, response, error) -> Void in

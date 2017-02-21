@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -32,7 +33,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="esK-UQ-piw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fqN-ki-014">
                             <size key="itemSize" width="296" height="90"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -40,13 +41,31 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="L9J-dX-uhj">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="L9J-dX-uhj" customClass="CollectionViewCell" customModule="FunnyHeadlines" customModuleProvider="target">
                                 <rect key="frame" x="40" y="0.0" width="296" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="296" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Headline" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgN-QP-RyH">
+                                            <rect key="frame" x="8" y="8" width="280" height="74"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </view>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="VgN-QP-RyH" firstAttribute="top" secondItem="L9J-dX-uhj" secondAttribute="topMargin" id="B5g-B7-xvc"/>
+                                    <constraint firstItem="VgN-QP-RyH" firstAttribute="bottom" secondItem="L9J-dX-uhj" secondAttribute="bottomMargin" id="P1s-HE-L52"/>
+                                    <constraint firstItem="VgN-QP-RyH" firstAttribute="trailing" secondItem="L9J-dX-uhj" secondAttribute="trailingMargin" id="tUT-8M-5KK"/>
+                                    <constraint firstItem="VgN-QP-RyH" firstAttribute="leading" secondItem="L9J-dX-uhj" secondAttribute="leadingMargin" id="xT6-e0-K86"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="headlineLabel" destination="VgN-QP-RyH" id="QKf-8h-N2T"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>

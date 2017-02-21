@@ -17,16 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        var translatedNewsArray = [News]()
-        
-        // temporary display of how the news API and fun translations work together. Right now, only the first five requests go through because of a rate limit (will be payint $5 for upgrade)
-        News.getNews(ForSource: "cnn") { newsArray in
-            for article in newsArray {
-                translate(Headline: article.title!, WithTranslation: "yoda", completion: {translation in
-                    translatedNewsArray.append(News(title: translation, url: article.url!)!)
-                })
-            }
-        }
         return true
     }
 
