@@ -18,6 +18,8 @@
 		E9436B881E5BCAB00074DD15 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9436B871E5BCAB00074DD15 /* Shared.swift */; };
 		E9436B8A1E5C77AB0074DD15 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9436B891E5C77AB0074DD15 /* CollectionViewCell.swift */; };
 		E9436B8C1E5C9C3E0074DD15 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9436B8B1E5C9C3E0074DD15 /* SettingsViewController.swift */; };
+		E9436B8E1E5D186A0074DD15 /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9436B8D1E5D186A0074DD15 /* HeaderCollectionReusableView.swift */; };
+		E9436B901E5D1D040074DD15 /* FooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9436B8F1E5D1D040074DD15 /* FooterCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		E9436B871E5BCAB00074DD15 /* Shared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
 		E9436B891E5C77AB0074DD15 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		E9436B8B1E5C9C3E0074DD15 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E9436B8D1E5D186A0074DD15 /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		E9436B8F1E5D1D040074DD15 /* FooterCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterCollectionReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 				E9436B831E5BAE5F0074DD15 /* CollectionViewController.swift */,
 				E9436B891E5C77AB0074DD15 /* CollectionViewCell.swift */,
 				E9436B8B1E5C9C3E0074DD15 /* SettingsViewController.swift */,
+				E9436B8F1E5D1D040074DD15 /* FooterCollectionReusableView.swift */,
+				E9436B8D1E5D186A0074DD15 /* HeaderCollectionReusableView.swift */,
 				E9436B7F1E5BAC060074DD15 /* News.swift */,
 				E9436B811E5BAC2C0074DD15 /* Translate.swift */,
 				E9436B871E5BCAB00074DD15 /* Shared.swift */,
@@ -155,10 +161,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9436B881E5BCAB00074DD15 /* Shared.swift in Sources */,
+				E9436B8E1E5D186A0074DD15 /* HeaderCollectionReusableView.swift in Sources */,
 				E9436B6B1E5BABC50074DD15 /* AppDelegate.swift in Sources */,
 				E9436B8A1E5C77AB0074DD15 /* CollectionViewCell.swift in Sources */,
 				E9436B801E5BAC060074DD15 /* News.swift in Sources */,
 				E9436B731E5BABC50074DD15 /* FunnyHeadlines.xcdatamodeld in Sources */,
+				E9436B901E5D1D040074DD15 /* FooterCollectionReusableView.swift in Sources */,
 				E9436B821E5BAC2C0074DD15 /* Translate.swift in Sources */,
 				E9436B841E5BAE5F0074DD15 /* CollectionViewController.swift in Sources */,
 				E9436B8C1E5C9C3E0074DD15 /* SettingsViewController.swift in Sources */,

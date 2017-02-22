@@ -12,18 +12,28 @@
 
 import UIKit
 
+// reusable identifiers for the various components of the collection view
 private let reuseIdentifier = "Cell"
+private let reusableIdentifierForHeader = "Header"
+private let reusableIdentifierForFooter = "Footer"
+
 // specifies the distance of one cell from the border and other cells
 private let sectionInsets = UIEdgeInsets(top: 15.0, left: 50.0, bottom: 15.0, right: 50.0)
 // specifies the height of a cell
-private let cellHeight: CGFloat = 75.0
+private let cellHeight: CGFloat = 125.0
 
 class CollectionViewController: UICollectionViewController {
     
     var translatedNewsArray = [News]()
     
-    var source = "cnn"
-    var translation = "yoda"
+    var source: String? = ""
+    var translation: String? = ""
+    
+    var header: (String, UIImage)?
+    
+    // used to keep track of the corresponding row in settings view
+    var sourceRow = 0
+    var translationRow = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,21 +44,24 @@ class CollectionViewController: UICollectionViewController {
         // Register cell classes
         //self.collectionView!.register(CollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
-        // temporary display of how the news API and fun translations work together. Right now, only the first five requests go through because of a rate limit (will be payint $5 for upgrade)
-        News.getNews(ForSource: source) { newsArray in
-            
-            self.translatedNewsArray = newsArray
-            self.refreshUI()
-            /*
-            for article in newsArray {
-                translate(Headline: article.title!, WithTranslation: translation, completion: {translation in
-                    self.translatedNewsArray.append(News(title: translation, url: article.url!)!)
-                    // when a new translated headline comes in, update the collection view to show it
-                    self.refreshUI()
-                })
-            }
-             */
+        // set defaults from last time the app ran
+        sourceRow = userDefaults.integer(forKey: "SourceRow")
+        translationRow = userDefaults.integer(forKey: "TranslationRow")
+        
+        // if there is no past settings, use cnn by default
+        source = userDefaults.string(forKey: "Source")
+        if source == nil {
+            source = "cnn"
         }
+        
+        // if there is no past settings, use yoda by default
+        translation = userDefaults.string(forKey: "Translation")
+        if translation == nil {
+            translation = "yoda"
+        }
+        
+        prepareHeader()
+        loadData()
         
         // TODO: implement persistent settings - alter source and translation variables here
     }
@@ -167,4 +180,69 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
         return sectionInsets.top
     }
 
+}
+
+extension CollectionViewController {
+    func loadData() {
+        
+        translatedNewsArray = []
+        
+        News.getNews(ForSource: source!) { newsArray in
+            
+            self.translatedNewsArray = newsArray
+            self.refreshUI()
+            /*
+             for article in newsArray {
+             translate(Headline: article.title!, WithTranslation: translation, completion: {translation in
+             self.translatedNewsArray.append(News(title: translation, url: article.url!)!)
+             // when a new translated headline comes in, update the collection view to show it
+             self.refreshUI()
+             })
+             }
+             */
+        }
+    }
+    
+    func prepareHeader() {
+        // currently supported translations: yoda, elmer fudd, pirate, shakespeare
+        if translation == "yoda" {
+            header = ("YODA", #imageLiteral(resourceName: "yoda"))
+        }
+        else if translation == "fudd" {
+            header = ("ELMER FUDD", #imageLiteral(resourceName: "fudd"))
+        }
+        else if translation == "pirate" {
+            header = ("A PIRATE", #imageLiteral(resourceName: "pirate"))
+        }
+        else if translation == "shakespeare" {
+            header = ("SHAKESPEARE", #imageLiteral(resourceName: "shakespeare"))
+        } else {
+            header = ("ERROR", #imageLiteral(resourceName: "settingsIcon"))
+        }
+    }
+}
+
+extension CollectionViewController {
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        var reusableView: UICollectionReusableView? = nil
+        
+        if kind == UICollectionElementKindSectionHeader {
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: reusableIdentifierForHeader, for: indexPath) as! HeaderCollectionReusableView
+            
+            headerView.nameLabel.text = header?.0
+            headerView.imageView.image = header?.1
+            
+            reusableView = headerView
+        }
+        
+        if kind == UICollectionElementKindSectionFooter {
+            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, withReuseIdentifier: reusableIdentifierForFooter, for: indexPath) as! FooterCollectionReusableView
+            
+            reusableView = footerView
+        }
+        
+        return reusableView!
+    }
 }

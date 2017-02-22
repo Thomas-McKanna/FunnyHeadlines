@@ -18,6 +18,8 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Settings"
 
         sourcePickerView.delegate = self
         sourcePickerView.dataSource = self
@@ -25,12 +27,40 @@ class SettingsViewController: UIViewController {
         translatedByPickerView.delegate = self
         translatedByPickerView.dataSource = self
         
+        // set picker view to the user's last configuration
+        sourcePickerView.selectRow(delegate.sourceRow, inComponent: 0, animated: true)
+        translatedByPickerView.selectRow(delegate.translationRow, inComponent: 0, animated: true)
+        
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        // update the value of "source" in the delegate. Source must be translated into a form that the API accepts
-        //let sourceChosen = SupportedSources[sourcePickerView.selectedRow(inComponent: <#T##Int#>)]
-        //delegate.source = SourcesDictionary[sourceChosen]
+        
+        // get source and translation row selected
+        let sourceRow = sourcePickerView.selectedRow(inComponent: 0)
+        let translationRow = translatedByPickerView.selectedRow(inComponent: 0)
+        
+        // using row, get string version of row
+        let sourceChosen = SourcesDictionary[SupportedSources[sourceRow]]!
+        let translationChosen = TranslationDictionary[SupportedTranslations[translationRow]]!
+        
+        // set source and translation row in delegate
+        delegate.sourceRow = sourceRow
+        delegate.translationRow = translationRow
+        
+        // set strings in delegate
+        delegate.source = sourceChosen
+        delegate.translation = translationChosen
+        
+        // persistent storage
+        userDefaults.set(sourceRow, forKey: "SourceRow")
+        userDefaults.set(translationRow, forKey: "TranslationRow")
+        
+        userDefaults.set(sourceChosen, forKey: "Source")
+        userDefaults.set(translationChosen, forKey: "Translation")
+        
+        // update UI
+        delegate.prepareHeader()
+        delegate.loadData()
     }
     
     override func didReceiveMemoryWarning() {

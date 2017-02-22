@@ -34,7 +34,7 @@ func translate(Headline h: String, WithTranslation t: String, completion: @escap
     let URL = urlComponents.url!
     // embed the URL into a request
     var request = URLRequest(url: URL)
-    request.addValue("4V9_OUXmRNktTdftKTE8egeF", forHTTPHeaderField: "X-FunTranslations-Api-Secret")
+    request.addValue(YODA_API_KEY, forHTTPHeaderField: "X-FunTranslations-Api-Secret")
 
     // make the request over the internet. The variable "data" contains a JSON containing news articles
     URLSession.shared.dataTask(with: request as URLRequest) {(data, response, error) -> Void in
