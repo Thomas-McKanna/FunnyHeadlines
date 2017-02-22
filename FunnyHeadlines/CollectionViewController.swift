@@ -97,16 +97,6 @@ class CollectionViewController: UICollectionViewController {
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     // MARK: UICollectionViewDataSource
 
     // this function specifies the number of "columns"
@@ -127,6 +117,11 @@ class CollectionViewController: UICollectionViewController {
         cell.headlineLabel.text = translatedNewsArray[indexPath.row].title
     
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let url = URL(string: translatedNewsArray[indexPath.row].url!)
+        UIApplication.shared.open(url!)
     }
     
     // MARK: UICollectionViewDelegate
@@ -189,17 +184,18 @@ extension CollectionViewController {
         
         News.getNews(ForSource: source!) { newsArray in
             
-            self.translatedNewsArray = newsArray
+            // if you want to avoid using up API calls to Fun Translations, uncomment the following line and comment out the entire "for in" loop
+            //self.translatedNewsArray = newsArray
             self.refreshUI()
-            /*
+            
              for article in newsArray {
-             translate(Headline: article.title!, WithTranslation: translation, completion: {translation in
+             translate(Headline: article.title!, WithTranslation: self.translation!, completion: {translation in
              self.translatedNewsArray.append(News(title: translation, url: article.url!)!)
              // when a new translated headline comes in, update the collection view to show it
              self.refreshUI()
              })
              }
-             */
+
         }
     }
     
