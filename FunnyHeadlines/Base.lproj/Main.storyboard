@@ -30,10 +30,10 @@
         <scene sceneID="D0H-yg-MEq">
             <objects>
                 <collectionViewController id="ugz-OF-1RY" customClass="CollectionViewController" customModule="FunnyHeadlines" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="esK-UQ-piw">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="esK-UQ-piw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fqN-ki-014">
                             <size key="itemSize" width="296" height="90"/>
                             <size key="headerReferenceSize" width="50" height="122"/>
@@ -113,7 +113,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="7kS-WB-UUt" firstAttribute="centerX" secondItem="MCk-6g-9bR" secondAttribute="centerX" constant="47.5" id="B0o-yr-NI5"/>
                                         <constraint firstAttribute="width" constant="303" id="BWx-C4-fow"/>
@@ -127,7 +127,7 @@
                                     </constraints>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="MCk-6g-9bR" secondAttribute="bottom" id="OYA-Jx-IhJ"/>
                                 <constraint firstItem="MCk-6g-9bR" firstAttribute="centerX" secondItem="F0h-WH-xPn" secondAttribute="centerX" id="lV6-kP-GHf"/>
@@ -278,7 +278,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="XPT-YK-RQp" firstAttribute="top" secondItem="e4r-cL-neA" secondAttribute="bottom" constant="8" id="4YW-bW-sKa"/>
                                             <constraint firstAttribute="trailing" secondItem="e4r-cL-neA" secondAttribute="trailing" constant="8" id="7RY-Uj-d68"/>
